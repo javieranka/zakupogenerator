@@ -1,0 +1,321 @@
+{
+    "naleśniki": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "mleko",
+                "ilość": 1,
+                "jednostka": "szklanka"
+            },
+            "składnik_2": {
+                "produkt": "jajko",
+                "ilość": 2,
+                "jednostka": "sztuka"
+            },
+            "składnik_3": {
+                "produkt": "mąka",
+                "ilość": 1.5,
+                "jednostka": "szklanka"
+            },
+            "składnik_4": {
+                "produkt": "proszek do pieczenia",
+                "ilość": 1,
+                "jednostka": "łyżeczka"
+            },
+            "składnik_5": {
+                "produkt": "cukier",
+                "ilość": 1,
+                "jednostka": "łyżka"
+            }
+        }
+    },
+    "spaghetti_bolognese": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "mięso mielone",
+                "ilość": 500,
+                "jednostka": "gram"
+            },
+            "składnik_2": {
+                "produkt": "cebula",
+                "ilość": 1,
+                "jednostka": "sztuka"
+            },
+            "składnik_3": {
+                "produkt": "czosnek",
+                "ilość": 2,
+                "jednostka": "ząbek"
+            },
+            "składnik_4": {
+                "produkt": "sos pomidorowy",
+                "ilość": 400,
+                "jednostka": "gram"
+            },
+            "składnik_5": {
+                "produkt": "spaghetti",
+                "ilość": 200,
+                "jednostka": "gram"
+            }
+        }
+    },
+    "ciasteczka_czekoladowe": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "masło",
+                "ilość": 1,
+                "jednostka": "szklanka"
+            },
+            "składnik_2": {
+                "produkt": "cukier",
+                "ilość": 1,
+                "jednostka": "szklanka"
+            },
+            "składnik_3": {
+                "produkt": "cukier brązowy",
+                "ilość": 1,
+                "jednostka": "szklanka"
+            },
+            "składnik_4": {
+                "produkt": "jajko",
+                "ilość": 2,
+                "jednostka": "sztuka"
+            },
+            "składnik_5": {
+                "produkt": "mąka",
+                "ilość": 2.5,
+                "jednostka": "szklanka"
+            },
+            "składnik_6": {
+                "produkt": "czekolada",
+                "ilość": 1.5,
+                "jednostka": "szklanka"
+            }
+        }
+    },
+    "sałatka_cezar": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "sałata rzymska",
+                "ilość": 1,
+                "jednostka": "główka"
+            },
+            "składnik_2": {
+                "produkt": "grzanki",
+                "ilość": 1,
+                "jednostka": "szklanka"
+            },
+            "składnik_3": {
+                "produkt": "ser parmezan",
+                "ilość": 0.5,
+                "jednostka": "szklanka"
+            },
+            "składnik_4": {
+                "produkt": "sos cezar",
+                "ilość": 0.25,
+                "jednostka": "szklanka"
+            }
+        }
+    },
+    "tosty_francuskie": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "chleb",
+                "ilość": 4,
+                "jednostka": "kromka"
+            },
+            "składnik_2": {
+                "produkt": "jajko",
+                "ilość": 2,
+                "jednostka": "sztuka"
+            },
+            "składnik_3": {
+                "produkt": "mleko",
+                "ilość": 0.5,
+                "jednostka": "szklanka"
+            },
+            "składnik_4": {
+                "produkt": "cynamon",
+                "ilość": 0.5,
+                "jednostka": "łyżeczka"
+            },
+            "składnik_5": {
+                "produkt": "ekstrakt waniliowy",
+                "ilość": 1,
+                "jednostka": "łyżeczka"
+            }
+        }
+    },
+    "guacamole": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "awokado",
+                "ilość": 2,
+                "jednostka": "sztuka"
+            },
+            "składnik_2": {
+                "produkt": "sok z limonki",
+                "ilość": 1,
+                "jednostka": "łyżka"
+            },
+            "składnik_3": {
+                "produkt": "sól",
+                "ilość": 0.5,
+                "jednostka": "łyżeczka"
+            },
+            "składnik_4": {
+                "produkt": "cebula",
+                "ilość": 0.25,
+                "jednostka": "szklanka"
+            },
+            "składnik_5": {
+                "produkt": "kolendra",
+                "ilość": 1,
+                "jednostka": "łyżka"
+            }
+        }
+    },
+    "omlet": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "jajko",
+                "ilość": 3,
+                "jednostka": "sztuka"
+            },
+            "składnik_2": {
+                "produkt": "mleko",
+                "ilość": 2,
+                "jednostka": "łyżka"
+            },
+            "składnik_3": {
+                "produkt": "sól",
+                "ilość": 0.25,
+                "jednostka": "łyżeczka"
+            },
+            "składnik_4": {
+                "produkt": "pieprz",
+                "ilość": 0.25,
+                "jednostka": "łyżeczka"
+            },
+            "składnik_5": {
+                "produkt": "masło",
+                "ilość": 1,
+                "jednostka": "łyżka"
+            }
+        }
+    },
+    "chleb_bananowy": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "banan",
+                "ilość": 3,
+                "jednostka": "sztuka"
+            },
+            "składnik_2": {
+                "produkt": "cukier",
+                "ilość": 1,
+                "jednostka": "szklanka"
+            },
+            "składnik_3": {
+                "produkt": "masło",
+                "ilość": 0.5,
+                "jednostka": "szklanka"
+            },
+            "składnik_4": {
+                "produkt": "jajko",
+                "ilość": 2,
+                "jednostka": "sztuka"
+            },
+            "składnik_5": {
+                "produkt": "mąka",
+                "ilość": 1.5,
+                "jednostka": "szklanka"
+            },
+            "składnik_6": {
+                "produkt": "soda oczyszczona",
+                "ilość": 1,
+                "jednostka": "łyżeczka"
+            }
+        }
+    },
+    "hummus": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "ciecierzyca",
+                "ilość": 1,
+                "jednostka": "puszka"
+            },
+            "składnik_2": {
+                "produkt": "tahini",
+                "ilość": 0.25,
+                "jednostka": "szklanka"
+            },
+            "składnik_3": {
+                "produkt": "oliwa z oliwek",
+                "ilość": 2,
+                "jednostka": "łyżka"
+            },
+            "składnik_4": {
+                "produkt": "sok z cytryny",
+                "ilość": 2,
+                "jednostka": "łyżka"
+            },
+            "składnik_5": {
+                "produkt": "czosnek",
+                "ilość": 1,
+                "jednostka": "ząbek"
+            }
+        }
+    },
+    "szarlotka": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "jabłko",
+                "ilość": 6,
+                "jednostka": "sztuka"
+            },
+            "składnik_2": {
+                "produkt": "cukier",
+                "ilość": 0.75,
+                "jednostka": "szklanka"
+            },
+            "składnik_3": {
+                "produkt": "mąka",
+                "ilość": 2,
+                "jednostka": "łyżka"
+            },
+            "składnik_4": {
+                "produkt": "cynamon",
+                "ilość": 1,
+                "jednostka": "łyżeczka"
+            },
+            "składnik_5": {
+                "produkt": "ciasto kruche",
+                "ilość": 1,
+                "jednostka": "sztuka"
+            }
+        }
+    },
+    "koktajl": {
+        "ingredients": {
+            "składnik_1": {
+                "produkt": "banan",
+                "ilość": 1,
+                "jednostka": "sztuka"
+            },
+            "składnik_2": {
+                "produkt": "truskawki",
+                "ilość": 1,
+                "jednostka": "szklanka"
+            },
+            "składnik_3": {
+                "produkt": "jogurt",
+                "ilość": 0.5,
+                "jednostka": "szklanka"
+            },
+            "składnik_4": {
+                "produkt": "sok pomarańczowy",
+                "ilość": 0.5,
+                "jednostka": "szklanka"
+            }
+        }
+    }
+}

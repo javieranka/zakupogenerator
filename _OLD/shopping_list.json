@@ -1,0 +1,50 @@
+{
+    "milk": {
+        "quantity": 1,
+        "unit": "cup"
+    },
+    "egg": {
+        "quantity": 5,
+        "unit": "piece"
+    },
+    "flour": {
+        "quantity": 1.5,
+        "unit": "cup"
+    },
+    "baking powder": {
+        "quantity": 1,
+        "unit": "teaspoon"
+    },
+    "sugar": {
+        "quantity": 1,
+        "unit": "tablespoon"
+    },
+    "romaine lettuce": {
+        "quantity": 1,
+        "unit": "head"
+    },
+    "croutons": {
+        "quantity": 1,
+        "unit": "cup"
+    },
+    "parmesan cheese": {
+        "quantity": 0.5,
+        "unit": "cup"
+    },
+    "caesar dressing": {
+        "quantity": 0.25,
+        "unit": "cup"
+    },
+    "salt": {
+        "quantity": 0.25,
+        "unit": "teaspoon"
+    },
+    "pepper": {
+        "quantity": 0.25,
+        "unit": "teaspoon"
+    },
+    "butter": {
+        "quantity": 1,
+        "unit": "tablespoon"
+    }
+}

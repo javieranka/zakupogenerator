@@ -1,0 +1,100 @@
+{
+    "tarta-dyniowa": {
+        "ingredients": [
+            {
+                "product": "mąka pszenna uniwersalna",
+                "quantity": "240",
+                "unit": "g - 1,5 szklanki"
+            },
+            {
+                "product": "masło",
+                "quantity": "150",
+                "unit": "g"
+            },
+            {
+                "product": "cukier puder",
+                "quantity": "60",
+                "unit": "g"
+            },
+            {
+                "product": "śmietana kwaśna 12-18 %",
+                "quantity": "20",
+                "unit": "g"
+            },
+            {
+                "product": "dynia pieczona",
+                "quantity": "500",
+                "unit": "g"
+            },
+            {
+                "product": "jajka małe",
+                "quantity": "2",
+                "unit": "sztuki"
+            },
+            {
+                "product": "twaróg mielony",
+                "quantity": "150",
+                "unit": "g"
+            },
+            {
+                "product": "cukier trzcinowy",
+                "quantity": "40",
+                "unit": "g"
+            },
+            {
+                "product": "kisiel pomarańczowy bez cukru",
+                "quantity": "40",
+                "unit": "g"
+            },
+            {
+                "product": "cynamon",
+                "quantity": "0.25",
+                "unit": "łyżeczki"
+            }
+        ]
+    },
+    "chlebek-bananowy-fit": {
+        "ingredients": [
+            {
+                "product": "mąka orkiszowa jasna lub pszenna pełnoziarnista",
+                "quantity": "240",
+                "unit": "g - 1,5 szklanki"
+            },
+            {
+                "product": "olej roślinny rzepakowy",
+                "quantity": "100",
+                "unit": "ml"
+            },
+            {
+                "product": "banany - rozgnieciony widelcem miąższ",
+                "quantity": "350",
+                "unit": "g - 3 duże"
+            },
+            {
+                "product": "duże jajka",
+                "quantity": "2",
+                "unit": "sztuki"
+            },
+            {
+                "product": "erytrol",
+                "quantity": "50",
+                "unit": "g"
+            },
+            {
+                "product": "cynamon i kakao",
+                "quantity": "po",
+                "unit": "pół łyżeczki"
+            },
+            {
+                "product": "soda oczyszczona",
+                "quantity": "1",
+                "unit": "płaska łyżeczka"
+            },
+            {
+                "product": "orzechy włoskie lub pekan",
+                "quantity": "30",
+                "unit": "g"
+            }
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "milk": {
+        "quantity": 1,
+        "unit": "cup"
+    },
+    "egg": {
+        "quantity": 4,
+        "unit": "piece"
+    },
+    "flour": {
+        "quantity": 3.0,
+        "unit": "cup"
+    },
+    "baking powder": {
+        "quantity": 1,
+        "unit": "teaspoon"
+    },
+    "sugar": {
+        "quantity": 1,
+        "unit": "tablespoon"
+    },
+    "banana": {
+        "quantity": 3,
+        "unit": "piece"
+    },
+    "butter": {
+        "quantity": 0.5,
+        "unit": "cup"
+    },
+    "baking soda": {
+        "quantity": 1,
+        "unit": "teaspoon"
+    },
+    "chickpeas": {
+        "quantity": 1,
+        "unit": "can"
+    },
+    "tahini": {
+        "quantity": 0.25,
+        "unit": "cup"
+    },
+    "olive oil": {
+        "quantity": 2,
+        "unit": "tablespoon"
+    },
+    "lemon juice": {
+        "quantity": 2,
+        "unit": "tablespoon"
+    },
+    "garlic": {
+        "quantity": 1,
+        "unit": "clove"
+    }
+}

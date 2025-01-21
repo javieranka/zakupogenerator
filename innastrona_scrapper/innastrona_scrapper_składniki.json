@@ -1,0 +1,170 @@
+{
+    "tarta-dyniowa-pumpkin-spice": {
+        "ingredients": [
+            {
+                "product": "mąka pszenna",
+                "quantity": "1 ½",
+                "unit": "szklanki"
+            },
+            {
+                "product": "cukier puder",
+                "quantity": "⅓",
+                "unit": "szklanki"
+            },
+            {
+                "product": "sól",
+                "quantity": "½",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "masło",
+                "quantity": "150",
+                "unit": "g"
+            },
+            {
+                "product": "puree dyniowe",
+                "quantity": "200",
+                "unit": "g"
+            },
+            {
+                "product": "masło",
+                "quantity": "50",
+                "unit": "g"
+            },
+            {
+                "product": "miód",
+                "quantity": "50",
+                "unit": "g"
+            },
+            {
+                "product": "kremówka 30%",
+                "quantity": "⅓",
+                "unit": "szklanki"
+            },
+            {
+                "product": "duże jajka",
+                "quantity": "2",
+                "unit": "sztuki"
+            },
+            {
+                "product": "brązowy cukier",
+                "quantity": "2",
+                "unit": "łyżki"
+            },
+            {
+                "product": "otarta skórka z pomarańczy",
+                "quantity": "2",
+                "unit": "łyżki"
+            },
+            {
+                "product": "świeżo wyciśnięty sok z pomarańczy",
+                "quantity": "¼",
+                "unit": "szklanki"
+            },
+            {
+                "product": "cynamon",
+                "quantity": "1",
+                "unit": "łyżeczka"
+            },
+            {
+                "product": "przyprawa do piernika",
+                "quantity": "½",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "mielony imbir",
+                "quantity": "½",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "kurkuma",
+                "quantity": "¼",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "mielony pieprz",
+                "quantity": "¼",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "starta gałka muszkatołowa",
+                "quantity": "⅛",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "ekstrakt waniliowy",
+                "quantity": "1",
+                "unit": "łyżeczka"
+            },
+            {
+                "product": "drobnoziarnista sól morska",
+                "quantity": "¼",
+                "unit": "łyżeczki"
+            }
+        ]
+    },
+    "chlebek-bananowy": {
+        "ingredients": [
+            {
+                "product": "mąka pszenna",
+                "quantity": "1 ¾",
+                "unit": "szklanki"
+            },
+            {
+                "product": "soda oczyszczona",
+                "quantity": "1",
+                "unit": "łyżeczka"
+            },
+            {
+                "product": "proszek do pieczenia",
+                "quantity": "½",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "sól",
+                "quantity": "½",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "cynamon (opcjonalnie)",
+                "quantity": "½",
+                "unit": "łyżeczki"
+            },
+            {
+                "product": "cukier brązowy",
+                "quantity": "½",
+                "unit": "szklanki"
+            },
+            {
+                "product": "kwaśna śmietana lub jogurt",
+                "quantity": "⅓",
+                "unit": "szklanki"
+            },
+            {
+                "product": "masło, roztopione i przestudzone choć trochę",
+                "quantity": "100",
+                "unit": "g"
+            },
+            {
+                "product": "jajka od szczęśliwej kury",
+                "quantity": "2",
+                "unit": "sztuki"
+            },
+            {
+                "product": "banany, bardzo dojrzałe",
+                "quantity": "3 – 4",
+                "unit": "sztuki"
+            },
+            {
+                "product": "posiekane orzechy włoskie lub/i gorzka czekolada (opcjonalnie)",
+                "quantity": "½",
+                "unit": "szklanki"
+            },
+            {
+                "product": "banan na wierzch (opcjonalnie)",
+                "quantity": "1",
+                "unit": "sztuka"
+            }
+        ]
+    }
+}
