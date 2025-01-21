@@ -120,23 +120,18 @@ def merge_ingredients(all_ingredients):
     return merged_ingredients_list
 
 
-# def generate_shopping_list(shopping_list):
-#     """Generuje listę zakupów w formacie JSON i CSV."""
-#     shopping_list_json = "lista_zakupów_oryginalne_jednostki.json"
-#     shopping_list_csv = "lista_zakupów.csv"
+def generate_shopping_list(shopping_list):
+    """Generuje listę zakupów w formacie JSON, posortowaną alfabetycznie według produktu."""
+    shopping_list_json = "lista_zakupów_oryginalne_jednostki.json"
 
-#     # Zapis do pliku JSON
-#     with open(shopping_list_json, "w", encoding="utf-8") as json_file:
-#         json.dump(shopping_list, json_file, ensure_ascii=False, indent=4)
+    # Sortowanie listy zakupów alfabetycznie według pola 'product'
+    sorted_shopping_list = sorted(shopping_list, key=lambda item: item["product"])
 
-#     # Zapis do pliku CSV
-#     with open(shopping_list_csv, "w", newline="", encoding="utf-8") as csv_file:
-#         writer = csv.writer(csv_file)
-#         writer.writerow(["Produkt", "Ilość", "Jednostka", "Oryginalna ilość"])
-#         for item in shopping_list:
-#             writer.writerow([item["product"], item['quantity'], item['unit']])
+    # Zapis do pliku JSON
+    with open(shopping_list_json, "w", encoding="utf-8") as json_file:
+        json.dump(sorted_shopping_list, json_file, ensure_ascii=False, indent=4)
 
-#     print(f"Zapisano listę zakupów w plikach: {shopping_list_json} i {shopping_list_csv}")
+    print(f"Zapisano listę zakupów w pliku: {shopping_list_json}")
 
 
 # Funkcja wywołująca podskrypt aniagotuje_scrapper.py
@@ -166,5 +161,5 @@ if __name__ == "__main__":
     # Wygeneruj złączoną listę składników
     merged_ingredients = merge_ingredients(all_ingredients)
     
-    # Wygeneruj listę zakupów
-    # generate_shopping_list(merged_ingredients)
+    # Wygeneruj listę zakupów (posortowany JSON)
+    generate_shopping_list(merged_ingredients)
