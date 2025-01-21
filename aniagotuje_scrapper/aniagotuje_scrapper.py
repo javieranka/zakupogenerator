@@ -143,7 +143,7 @@ def get_recipes():
     print(f"Wszystkie przepisy: {recipes}")  # Debugowanie
     return recipes
 
-def save_recipes_to_file(recipes, file_name="./aniagotuje_scrapper/aniagotuje_składniki.json"):
+def save_recipes_to_file(recipes, file_name="./aniagotuje_scrapper/aniagotuje_scrapper_składniki.json"):
     print(f"Zapisuję dane: {recipes}")  # Debugowanie
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(recipes, file, ensure_ascii=False, indent=4)

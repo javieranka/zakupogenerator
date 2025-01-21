@@ -35,7 +35,9 @@ def merge_ingredients(all_ingredients):
     
     for ingredient in all_ingredients:
         product = ingredient["product"]
-        quantity, unit = parse_quantity_and_unit(ingredient["quantity"])
+        # quantity, unit = parse_quantity_and_unit(ingredient["quantity"])
+        quantity = ingredient["quantity"]
+        unit = ingredient["unit"]
         
         # Sumowanie ilości (zwykłe i ułamkowe wartości)
         if quantity:
@@ -76,8 +78,8 @@ def generate_shopping_list(shopping_list):
         writer = csv.writer(csv_file)
         writer.writerow(["Produkt", "Ilość", "Jednostka"])
         for item in shopping_list:
-            quantity, unit = parse_quantity_and_unit(item["quantity"])
-            writer.writerow([item["product"], quantity, unit])
+            # quantity, unit = parse_quantity_and_unit(item["quantity"])
+            writer.writerow([item["product"], item['quantity'], item['unit']])
 
     print(f"Zapisano listę zakupów w plikach: {shopping_list_json} i {shopping_list_csv}")
 
