@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Formularz</h1>
+<form action="{{ url_for('results') }}" method="POST">
+    <div class="mb-3">
+        <label for="inputField" class="form-label">Wprowadź coś:</label>
+        <input type="text" class="form-control" id="inputField" name="input_field" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Wyślij</button>
+</form>
+{% endblock %}
