@@ -1,13 +1,8 @@
 [
     {
-        "product": "mąka pszenna tortowa lub uniwersalna",
-        "quantity": "320.0",
+        "product": "cukier",
+        "quantity": "200.0",
         "unit": "g"
-    },
-    {
-        "product": "duże jajka",
-        "quantity": "12.0",
-        "unit": "sztuka"
     },
     {
         "product": "cukier drobny",
@@ -20,14 +15,29 @@
         "unit": "g"
     },
     {
-        "product": "gęsty jogurt lub skyr",
-        "quantity": "150.0",
+        "product": "cynamon",
+        "quantity": "1.0",
+        "unit": "łyżeczka"
+    },
+    {
+        "product": "czekolada gorzka",
+        "quantity": "130.0",
         "unit": "g"
     },
     {
-        "product": "olej roślinny np. rzepakowy",
-        "quantity": "140.0",
-        "unit": "ml"
+        "product": "czekolada mleczna",
+        "quantity": "100.0",
+        "unit": "g"
+    },
+    {
+        "product": "duże jajka",
+        "quantity": "12.0",
+        "unit": "sztuka"
+    },
+    {
+        "product": "gęsty jogurt lub skyr",
+        "quantity": "150.0",
+        "unit": "g"
     },
     {
         "product": "jabłka np. szara reneta",
@@ -40,28 +50,13 @@
         "unit": "g"
     },
     {
-        "product": "cynamon",
-        "quantity": "1.0",
-        "unit": ""
-    },
-    {
-        "product": "proszek do pieczenia",
-        "quantity": "1.0",
-        "unit": ""
-    },
-    {
-        "product": "soda oczyszczona",
-        "quantity": "1.0",
-        "unit": ""
-    },
-    {
-        "product": "mąka pszenna tortowa",
-        "quantity": "390.0",
+        "product": "masło",
+        "quantity": "450.0",
         "unit": "g"
     },
     {
-        "product": "masło",
-        "quantity": "450.0",
+        "product": "masło orzechowe (572 kcal w 100 gramach)",
+        "quantity": "150.0",
         "unit": "g"
     },
     {
@@ -70,49 +65,19 @@
         "unit": "ml"
     },
     {
-        "product": "proszek do pieczenia i soda",
-        "quantity": "1.0",
-        "unit": ""
-    },
-    {
-        "product": "świeże śliwki",
-        "quantity": "600.0",
+        "product": "mąka pszenna tortowa",
+        "quantity": "390.0",
         "unit": "g"
     },
     {
-        "product": "śmietanka 30 %",
-        "quantity": "30.0",
+        "product": "mąka pszenna tortowa lub uniwersalna",
+        "quantity": "320.0",
+        "unit": "g"
+    },
+    {
+        "product": "olej roślinny np. rzepakowy",
+        "quantity": "140.0",
         "unit": "ml"
-    },
-    {
-        "product": "czekolada gorzka",
-        "quantity": "130.0",
-        "unit": "g"
-    },
-    {
-        "product": "wiórki kokosowe",
-        "quantity": "20.0",
-        "unit": "g"
-    },
-    {
-        "product": "cukier",
-        "quantity": "200.0",
-        "unit": "g"
-    },
-    {
-        "product": "czekolada mleczna",
-        "quantity": "100.0",
-        "unit": "g"
-    },
-    {
-        "product": "sól",
-        "quantity": "1.0",
-        "unit": ""
-    },
-    {
-        "product": "masło orzechowe (572 kcal w 100 gramach)",
-        "quantity": "150.0",
-        "unit": "g"
     },
     {
         "product": "orzechy ziemne - prażone i solone",
@@ -122,6 +87,43 @@
     {
         "product": "precelki (394 kcal w 100 gramach)",
         "quantity": "30.0",
+        "unit": "g"
+    },
+    {
+        "product": "proszek do pieczenia",
+        "quantity": "2.0",
+        "unit": "łyżeczka"
+    },
+    {
+        "product": "proszek do pieczenia i soda",
+        "quantity": "1.0",
+        "unit": "",
+        "original_quantity": "po płaskiej łyżeczce"
+    },
+    {
+        "product": "soda oczyszczona",
+        "quantity": "1.0",
+        "unit": "łyżeczka"
+    },
+    {
+        "product": "sól",
+        "quantity": "1.0",
+        "unit": "",
+        "original_quantity": "1/3 płaskiej łyżeczki"
+    },
+    {
+        "product": "wiórki kokosowe",
+        "quantity": "20.0",
+        "unit": "g"
+    },
+    {
+        "product": "śmietanka 30 %",
+        "quantity": "30.0",
+        "unit": "ml"
+    },
+    {
+        "product": "świeże śliwki",
+        "quantity": "600.0",
         "unit": "g"
     }
 ]
