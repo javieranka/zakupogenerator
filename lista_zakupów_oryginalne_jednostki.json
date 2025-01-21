@@ -42,17 +42,17 @@
     {
         "product": "cynamon",
         "quantity": "1.0",
-        "unit": ""
+        "unit": "łyżeczka"
     },
     {
         "product": "proszek do pieczenia",
-        "quantity": "1.0",
-        "unit": ""
+        "quantity": "2.0",
+        "unit": "łyżeczka"
     },
     {
         "product": "soda oczyszczona",
         "quantity": "1.0",
-        "unit": ""
+        "unit": "łyżeczka"
     },
     {
         "product": "mąka pszenna tortowa",
@@ -72,7 +72,8 @@
     {
         "product": "proszek do pieczenia i soda",
         "quantity": "1.0",
-        "unit": ""
+        "unit": "",
+        "original_quantity": "po płaskiej łyżeczce"
     },
     {
         "product": "świeże śliwki",
@@ -107,7 +108,8 @@
     {
         "product": "sól",
         "quantity": "1.0",
-        "unit": ""
+        "unit": "",
+        "original_quantity": "1/3 płaskiej łyżeczki"
     },
     {
         "product": "masło orzechowe (572 kcal w 100 gramach)",
