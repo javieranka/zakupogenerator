@@ -7,6 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import json
 
+
 def convert_fraction_to_decimal(quantity_str):
     """Zamienia ułamki na wartości dziesiętne."""
     if '/' in quantity_str:
@@ -78,7 +79,7 @@ def get_recipe_ingredients(url):
 
             for item_idx, item in enumerate(ingredient_items):
                 try:
-                    # Przejdź głębiej do `span` z itemprop="recipeIngredient"
+                    # Przejdź głębiej do span z itemprop="recipeIngredient"
                     ingredient_span = item.find_element(By.CSS_SELECTOR, 'span[itemprop="recipeIngredient"]')
 
                     # Pobierz nazwę składnika
@@ -115,7 +116,6 @@ def get_recipe_ingredients(url):
     print(f"Znalezione składniki dla {url}: {ingredients}")
     return ingredients
 
-
 def get_recipes():
     # Odczytanie linków do przepisów z pliku
     recipe_urls = []
@@ -149,6 +149,9 @@ def save_recipes_to_file(recipes, file_name="./aniagotuje_scrapper/aniagotuje_sk
         json.dump(recipes, file, ensure_ascii=False, indent=4)
     print(f"Zapisano przepisy do pliku {file_name}")
 
-# Uruchomienie scrapowania
-recipes = get_recipes()
-save_recipes_to_file(recipes)
+
+############### MAIN ###############
+if __name__ == "__main__":
+    # Uruchomienie scrapowania
+    recipes = get_recipes()
+    save_recipes_to_file(recipes)

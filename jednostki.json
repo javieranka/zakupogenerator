@@ -1,0 +1,12 @@
+{
+    "units": {
+        "g": "g",
+        "dkg": "dkg",
+        "kg": "kg",
+        "ml": "ml",
+        "l": "l",
+        "sztuk": "sztuka",
+        "łyżeczk": "łyżeczka",
+        "łyżk": "łyżka"
+    }
+}
