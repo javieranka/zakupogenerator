@@ -5,23 +5,28 @@ import subprocess
 import re
 from collections import defaultdict
 
+units_filepath = './backend/jednostki/jednostki.json'
+units_calc_filepath = './backend/jednostki/jednostki_przeliczanie.json'
+shopping_list_json = './backend/lista_zakupów.json'
+
+aniagotuje_scrapper_filepath = "./backend/aniagotuje_scrapper/"
+aniagotuje_scrapper_script_filepath = "./backend/aniagotuje_scrapper/aniagotuje_scrapper.py"
+
 
 # Wczytanie pliku jednostki.json
-with open('./jednostki/jednostki.json', 'r', encoding='utf-8') as units_file:
+with open(units_filepath, 'r', encoding='utf-8') as units_file:
     unit_mappings = json.load(units_file)["units"]
 
 # Wczytanie pliku jednostki_przelicznie.json
-with open('./jednostki/jednostki_przeliczanie.json', 'r', encoding='utf-8') as units_calc_file:
+with open(units_calc_filepath, 'r', encoding='utf-8') as units_calc_file:
     unit_conversion_factors = json.load(units_calc_file)
-
-
 
 def load_ingredients_from_files(scraper_folders):
     """Ładuje składniki z plików JSON w folderach *_scrapper."""
     all_ingredients = []
     
     for folder in scraper_folders:
-        json_file_path = os.path.join(folder, f"{folder}_składniki.json")
+        json_file_path = os.path.join('./backend/', folder, f"{folder}_składniki.json")
         
         # Sprawdzamy, czy plik istnieje
         if os.path.exists(json_file_path):
@@ -61,7 +66,6 @@ def extract_quantity_and_unit(quantity_text):
             return match.group('quantity'), match.group('unit')
 
     return quantity_text, ""  # Domyślnie ilość = quantity_text, jednostka pusta
-
 
 def merge_ingredients(all_ingredients):
     """
@@ -122,10 +126,10 @@ def merge_ingredients(all_ingredients):
 
 def generate_shopping_list(shopping_list):
     """Generuje listę zakupów w formacie JSON, posortowaną alfabetycznie według produktu."""
-    shopping_list_json = "lista_zakupów_oryginalne_jednostki.json"
 
     # Sortowanie listy zakupów alfabetycznie według pola 'product'
     sorted_shopping_list = sorted(shopping_list, key=lambda item: item["product"])
+    # print(sorted_shopping_list)
 
     # Zapis do pliku JSON
     with open(shopping_list_json, "w", encoding="utf-8") as json_file:
@@ -139,7 +143,7 @@ def run_scraper():
     """Uruchamia podskrypt scrapera."""
     try:
         # Wywołanie skryptu aniagotuje_scrapper.py
-        result = subprocess.run(["python", "./aniagotuje_scrapper/aniagotuje_scrapper.py"], 
+        result = subprocess.run(["python", aniagotuje_scrapper_script_filepath], 
                                 check=True, capture_output=True, text=True)
         print("Podskrypt scrapera zakończył się sukcesem.")
     except subprocess.CalledProcessError as e:
@@ -153,7 +157,11 @@ if __name__ == "__main__":
     run_scraper()
 
     # Zakładając, że foldery *_scrapper są w bieżącym katalogu
-    scraper_folders = [folder for folder in os.listdir() if folder.endswith('_scrapper')]
+    # scraper_folders = [folder for folder in os.listdir() if folder.endswith('_scrapper')]
+    scraper_folders = [
+        folder for folder in os.listdir('./backend/') 
+        if os.path.isdir(os.path.join('./backend/', folder)) and folder.endswith('_scrapper')
+    ]
 
     # Załaduj składniki z plików *_składniki.json
     all_ingredients = load_ingredients_from_files(scraper_folders)

@@ -8,6 +8,10 @@ import time
 import json
 
 
+aniagotuje_links_filepath = "./backend/aniagotuje_scrapper/linki_do_przepisów.txt"
+aniagotuje_results_filepath = "./backend/aniagotuje_scrapper/aniagotuje_scrapper_składniki.json"
+
+
 def convert_fraction_to_decimal(quantity_str):
     """Zamienia ułamki na wartości dziesiętne."""
     if '/' in quantity_str:
@@ -90,24 +94,6 @@ def get_recipe_ingredients(url):
                     ingredient_qty = ingredient_span.find_element(By.CLASS_NAME, 'qty')
                     ingredient_qty_text = ingredient_qty.text.strip() or ingredient_qty.get_attribute("innerText").strip()
 
-                    # Rozdziel ilość i jednostkę
-                    # quantity, unit = split_quantity_and_unit(ingredient_qty_text)
-
-                # except Exception as e:
-                #     ingredient_name_text = ""
-                #     ingredient_qty_text = ""
-                #     quantity = ""
-                #     unit = ""
-                #     print(f"Błąd podczas pobierania składnika (item {item_idx + 1}): {e}")
-
-                # Dodaj składnik do listy
-                # if ingredient_name_text or quantity:
-                #     ingredients.append({
-                #         "product": ingredient_name_text,
-                #         "quantity": quantity,
-                #         "unit": unit
-                #     })
-
                 except Exception as e:
                     ingredient_name_text = ""
                     ingredient_qty_text = ""
@@ -128,11 +114,12 @@ def get_recipe_ingredients(url):
     print(f"Znalezione składniki dla {url}: {ingredients}")
     return ingredients
 
+
 def get_recipes():
     # Odczytanie linków do przepisów z pliku
     recipe_urls = []
     try:
-        with open('./aniagotuje_scrapper/linki_do_przepisów.txt', 'r', encoding='utf-8') as file:
+        with open(aniagotuje_links_filepath, 'r', encoding='utf-8') as file:
             recipe_urls = [line.strip() for line in file.readlines() if line.strip()]
         print(f"Załadowano {len(recipe_urls)} linków do przepisów z pliku.")
     except FileNotFoundError:
@@ -155,7 +142,8 @@ def get_recipes():
     print(f"Wszystkie przepisy: {recipes}")  # Debugowanie
     return recipes
 
-def save_recipes_to_file(recipes, file_name="./aniagotuje_scrapper/aniagotuje_scrapper_składniki.json"):
+
+def save_recipes_to_file(recipes, file_name=aniagotuje_results_filepath):
     print(f"Zapisuję dane: {recipes}")  # Debugowanie
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(recipes, file, ensure_ascii=False, indent=4)
