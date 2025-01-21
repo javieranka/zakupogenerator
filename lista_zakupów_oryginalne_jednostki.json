@@ -1,97 +1,127 @@
 [
     {
-        "product": "mąka pszenna uniwersalna",
-        "quantity": "240.0",
-        "unit": "g - 1,5 szklanki"
+        "product": "mąka pszenna tortowa lub uniwersalna",
+        "quantity": "320.0",
+        "unit": "g"
     },
     {
-        "product": "masło",
+        "product": "duże jajka",
+        "quantity": "12.0",
+        "unit": "sztuka"
+    },
+    {
+        "product": "cukier drobny",
+        "quantity": "290.0",
+        "unit": "g"
+    },
+    {
+        "product": "cukier wanilinowy",
+        "quantity": "32.0",
+        "unit": "g"
+    },
+    {
+        "product": "gęsty jogurt lub skyr",
         "quantity": "150.0",
         "unit": "g"
     },
     {
-        "product": "cukier puder",
+        "product": "olej roślinny np. rzepakowy",
+        "quantity": "140.0",
+        "unit": "ml"
+    },
+    {
+        "product": "jabłka np. szara reneta",
+        "quantity": "3.0",
+        "unit": "sztuka"
+    },
+    {
+        "product": "kakao",
         "quantity": "60.0",
         "unit": "g"
     },
     {
-        "product": "śmietana kwaśna 12-18 %",
-        "quantity": "20.0",
-        "unit": "g"
-    },
-    {
-        "product": "dynia pieczona",
-        "quantity": "500.0",
-        "unit": "g"
-    },
-    {
-        "product": "jajka małe",
-        "quantity": "2.0",
-        "unit": "sztuki"
-    },
-    {
-        "product": "twaróg mielony",
-        "quantity": "150.0",
-        "unit": "g"
-    },
-    {
-        "product": "cukier trzcinowy",
-        "quantity": "40.0",
-        "unit": "g"
-    },
-    {
-        "product": "kisiel pomarańczowy bez cukru",
-        "quantity": "40.0",
-        "unit": "g"
-    },
-    {
         "product": "cynamon",
-        "quantity": "0.25",
-        "unit": "łyżeczki"
+        "quantity": "1.0",
+        "unit": ""
     },
     {
-        "product": "mąka orkiszowa jasna lub pszenna pełnoziarnista",
-        "quantity": "240.0",
-        "unit": "g - 1,5 szklanki"
-    },
-    {
-        "product": "olej roślinny rzepakowy",
-        "quantity": "100.0",
-        "unit": "ml"
-    },
-    {
-        "product": "banany - rozgnieciony widelcem miąższ",
-        "quantity": "350.0",
-        "unit": "g - 3 duże"
-    },
-    {
-        "product": "duże jajka",
-        "quantity": "2.0",
-        "unit": "sztuki"
-    },
-    {
-        "product": "erytrol",
-        "quantity": "50.0",
-        "unit": "g"
-    },
-    {
-        "product": "cynamon i kakao",
-        "quantity": "0",
-        "unit": "pół łyżeczki"
+        "product": "proszek do pieczenia",
+        "quantity": "1.0",
+        "unit": ""
     },
     {
         "product": "soda oczyszczona",
         "quantity": "1.0",
-        "unit": "płaska łyżeczka"
+        "unit": ""
     },
     {
-        "product": "orzechy włoskie lub pekan",
-        "quantity": "30.0",
+        "product": "mąka pszenna tortowa",
+        "quantity": "390.0",
         "unit": "g"
     },
     {
-        "product": "mały banan",
+        "product": "masło",
+        "quantity": "450.0",
+        "unit": "g"
+    },
+    {
+        "product": "mleko",
+        "quantity": "50.0",
+        "unit": "ml"
+    },
+    {
+        "product": "proszek do pieczenia i soda",
         "quantity": "1.0",
-        "unit": "sztuka"
+        "unit": ""
+    },
+    {
+        "product": "świeże śliwki",
+        "quantity": "600.0",
+        "unit": "g"
+    },
+    {
+        "product": "śmietanka 30 %",
+        "quantity": "30.0",
+        "unit": "ml"
+    },
+    {
+        "product": "czekolada gorzka",
+        "quantity": "130.0",
+        "unit": "g"
+    },
+    {
+        "product": "wiórki kokosowe",
+        "quantity": "20.0",
+        "unit": "g"
+    },
+    {
+        "product": "cukier",
+        "quantity": "200.0",
+        "unit": "g"
+    },
+    {
+        "product": "czekolada mleczna",
+        "quantity": "100.0",
+        "unit": "g"
+    },
+    {
+        "product": "sól",
+        "quantity": "1.0",
+        "unit": ""
+    },
+    {
+        "product": "masło orzechowe (572 kcal w 100 gramach)",
+        "quantity": "150.0",
+        "unit": "g"
+    },
+    {
+        "product": "orzechy ziemne - prażone i solone",
+        "quantity": "50.0",
+        "unit": "g"
+    },
+    {
+        "product": "precelki (394 kcal w 100 gramach)",
+        "quantity": "30.0",
+        "unit": "g"
     }
 ]

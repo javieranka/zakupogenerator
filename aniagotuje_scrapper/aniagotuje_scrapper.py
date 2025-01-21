@@ -91,21 +91,33 @@ def get_recipe_ingredients(url):
                     ingredient_qty_text = ingredient_qty.text.strip() or ingredient_qty.get_attribute("innerText").strip()
 
                     # Rozdziel ilość i jednostkę
-                    quantity, unit = split_quantity_and_unit(ingredient_qty_text)
+                    # quantity, unit = split_quantity_and_unit(ingredient_qty_text)
+
+                # except Exception as e:
+                #     ingredient_name_text = ""
+                #     ingredient_qty_text = ""
+                #     quantity = ""
+                #     unit = ""
+                #     print(f"Błąd podczas pobierania składnika (item {item_idx + 1}): {e}")
+
+                # Dodaj składnik do listy
+                # if ingredient_name_text or quantity:
+                #     ingredients.append({
+                #         "product": ingredient_name_text,
+                #         "quantity": quantity,
+                #         "unit": unit
+                #     })
 
                 except Exception as e:
                     ingredient_name_text = ""
                     ingredient_qty_text = ""
-                    quantity = ""
-                    unit = ""
                     print(f"Błąd podczas pobierania składnika (item {item_idx + 1}): {e}")
 
                 # Dodaj składnik do listy
-                if ingredient_name_text or quantity:
+                if ingredient_name_text or ingredient_qty_text:
                     ingredients.append({
                         "product": ingredient_name_text,
-                        "quantity": quantity,
-                        "unit": unit
+                        "quantity": ingredient_qty_text
                     })
 
     except Exception as e:

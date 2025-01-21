@@ -81,3 +81,133 @@ def parse_quantity_and_unit(quantity_str):
                     # jelsi tak to przetlumacz unit na wartosc klucza
                     # chodzi glownie o sztuk
                     # sztuk znajduje sie w sztuki, sztuka, ... a tlumaczymy na sztuka w lb poj
+
+
+
+# def merge_ingredients(all_ingredients):
+#     """Łączy wszystkie składniki i sumuje ilości dla tych samych produktów."""
+#     merged_ingredients = defaultdict(lambda: {"quantity": 0, "unit": ""})
+    
+#     for ingredient in all_ingredients:
+#         product = ingredient["product"]
+#         quantity = ingredient["quantity"]
+#         unit = ingredient["unit"]
+        
+#         # Sumowanie ilości (zwykłe i ułamkowe wartości)
+#         if quantity:
+#             try:
+#                 merged_ingredients[product]["quantity"] += float(quantity)
+#             except ValueError:
+#                 print(f"Nie udało się przetworzyć ilości: {quantity} dla produktu: {product}")
+#         else:
+#             merged_ingredients[product]["quantity"] += 1  # domyślnie traktujemy brak ilości jako "1"
+        
+#         # Ustalamy jednostkę (przyjmujemy pierwszą jednostkę, która się pojawi)
+#         if merged_ingredients[product]["unit"] == "":
+#             merged_ingredients[product]["unit"] = unit
+    
+#     # Zmieniamy strukturę na listę
+#     merged_ingredients_list = []
+#     for product, data in merged_ingredients.items():
+#         merged_ingredients_list.append({
+#             "product": product,
+#             "quantity": str(data["quantity"]),
+#             "unit": data["unit"]
+#         })
+    
+#     return merged_ingredients_list
+
+# def merge_ingredients(all_ingredients):
+#     """Łączy wszystkie składniki, sumuje ilości dla tych samych produktów i dopasowuje jednostki."""
+#     merged_ingredients = defaultdict(lambda: {"quantity": 0, "unit": ""})
+
+#     for ingredient in all_ingredients:
+#         product = ingredient["product"]
+#         quantity = ingredient["quantity"]
+#         unit = ingredient["unit"]
+
+#         # Dopasowanie jednostki do wartości z jednostki.json
+#         for key in unit_mappings:
+#             if key in unit:  # Sprawdź, czy klucz (np. "g", "łyżk") występuje w jednostce
+#                 unit = unit_mappings[key]
+#                 break
+
+#         # Sumowanie ilości (zwykłe i ułamkowe wartości)
+#         if quantity:
+#             try:
+#                 merged_ingredients[product]["quantity"] += float(quantity)
+#             except ValueError:
+#                 print(f"Nie udało się przetworzyć ilości: {quantity} dla produktu: {product}")
+#         else:
+#             merged_ingredients[product]["quantity"] += 1  # Domyślnie traktujemy brak ilości jako "1"
+
+#         # Ustalamy jednostkę (przyjmujemy pierwszą jednostkę, która się pojawi)
+#         if merged_ingredients[product]["unit"] == "":
+#             merged_ingredients[product]["unit"] = unit
+
+#     # Zmieniamy strukturę na listę
+#     merged_ingredients_list = []
+#     for product, data in merged_ingredients.items():
+#         merged_ingredients_list.append({
+#             "product": product,
+#             "quantity": str(data["quantity"]),
+#             "unit": data["unit"]
+#         })
+
+#     return merged_ingredients_list
+
+# def merge_ingredients(all_ingredients):
+    """Łączy wszystkie składniki, sumuje ilości dla tych samych produktów i dopasowuje jednostki."""
+    merged_ingredients = defaultdict(lambda: {"quantity": 0, "unit": ""})
+
+    for ingredient in all_ingredients:
+        product = ingredient["product"]
+        quantity = ingredient["quantity"]
+        unit = ingredient["unit"]
+
+        # Dopasowanie jednostki do wartości z jednostki.json
+        for key in unit_mappings:
+            if key in unit:  # Sprawdź, czy klucz (np. "g", "łyżk") występuje w jednostce
+                unit = unit_mappings[key]
+                break
+
+        # Konwersja ilości na liczbę
+        try:
+            quantity = float(quantity) if quantity else 1
+        except ValueError:
+            print(f"Nie udało się przetworzyć ilości: {quantity} dla produktu: {product}")
+            quantity = 1
+
+        # Jeśli jednostka produktu już istnieje w `merged_ingredients`, konwertuj do wspólnej jednostki
+        if merged_ingredients[product]["unit"] and merged_ingredients[product]["unit"] != unit:
+            existing_unit = merged_ingredients[product]["unit"]
+
+            # Sprawdź, czy można dokonać konwersji między jednostkami
+            if unit in unit_conversion_factors and existing_unit in unit_conversion_factors[unit]:
+                conversion_factor = unit_conversion_factors[unit][existing_unit]
+                quantity *= conversion_factor  # Konwertuj ilość na istniejącą jednostkę
+                unit = existing_unit  # Ustaw jednostkę na istniejącą jednostkę w merged_ingredients
+            elif existing_unit in unit_conversion_factors and unit in unit_conversion_factors[existing_unit]:
+                conversion_factor = unit_conversion_factors[existing_unit][unit]
+                merged_ingredients[product]["quantity"] *= conversion_factor  # Konwertuj już zsumowaną ilość
+                merged_ingredients[product]["unit"] = unit  # Ustaw nową jednostkę
+            else:
+                print(f"Nie udało się dopasować jednostek: {existing_unit} i {unit} dla produktu: {product}")
+
+        # Sumowanie ilości w tej samej jednostce
+        merged_ingredients[product]["quantity"] += quantity
+
+        # Ustalamy jednostkę (przyjmujemy pierwszą jednostkę, która się pojawi)
+        if not merged_ingredients[product]["unit"]:
+            merged_ingredients[product]["unit"] = unit
+
+    # Zmieniamy strukturę na listę
+    merged_ingredients_list = []
+    for product, data in merged_ingredients.items():
+        merged_ingredients_list.append({
+            "product": product,
+            "quantity": str(data["quantity"]),
+            "unit": data["unit"]
+        })
+
+    return merged_ingredients_list
