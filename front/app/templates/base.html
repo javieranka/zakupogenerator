@@ -36,28 +36,7 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable({
-                "paging": false, 
-                "ordering": true, 
-                "searching": false,
-                "order": [
-                    // [0, "asc"]
-                ], // default order by first column disabled
-                "info": false, // pagination info
-                language: {
-                    // url: '//cdn.datatables.net/plug-ins/2.2.1/i18n/pl.json',
-                    // paginate: {
-                    //     first: "↶",    
-                    //     previous: "←",
-                    //     next: "→",         
-                    //     last: "↷",   
-                    // }
-                }
-            });
-        });
-    </script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 
 </html>
