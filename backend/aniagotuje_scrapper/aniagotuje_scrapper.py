@@ -44,7 +44,7 @@ def split_quantity_and_unit(quantity_text):
     return quantity, unit_part
 
 
-def get_recipe_ingredients(url):
+# def get_recipe_ingredients(url):
     options = webdriver.ChromeOptions()
     options.headless = True
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -112,6 +112,68 @@ def get_recipe_ingredients(url):
         driver.quit()
 
     # print(f"Znalezione składniki dla {url}: {ingredients}")
+    return ingredients
+
+
+def get_recipe_ingredients(url):
+    from selenium import webdriver
+    from selenium.webdriver.chrome.service import Service
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    from webdriver_manager.chrome import ChromeDriverManager
+
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")  # Działa w trybie bez okna
+    options.add_argument("--disable-gpu")  # Opcjonalne: wyłączenie GPU dla lepszej zgodności
+    options.add_argument("--no-sandbox")  # Wymagane na niektórych systemach Linux
+    options.add_argument("--disable-dev-shm-usage")  # Opcjonalne: zmniejszenie użycia pamięci współdzielonej
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
+    try:
+        driver.get(f"{url}")
+
+        # Czekamy na obecność sekcji składników
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "recipeIngredients"))
+        )
+
+        # Sekcja składników
+        ingredients_section = driver.find_element(By.ID, 'recipeIngredients')
+
+        ingredients = []
+
+        # Znajdź wszystkie listy składników
+        ingredient_lists = ingredients_section.find_elements(By.CLASS_NAME, 'recipe-ing-list')
+
+        for ingredient_list in ingredient_lists:
+            ingredient_items = ingredient_list.find_elements(By.TAG_NAME, 'li')
+
+            for item in ingredient_items:
+                try:
+                    # Przejdź głębiej do span z itemprop="recipeIngredient"
+                    ingredient_span = item.find_element(By.CSS_SELECTOR, 'span[itemprop="recipeIngredient"]')
+
+                    # Pobierz nazwę składnika
+                    ingredient_name = ingredient_span.find_element(By.CLASS_NAME, 'ingredient').text.strip()
+                    ingredient_qty = ingredient_span.find_element(By.CLASS_NAME, 'qty').text.strip()
+
+                    # Dodaj składnik do listy
+                    ingredients.append({
+                        "product": ingredient_name,
+                        "quantity": ingredient_qty
+                    })
+
+                except Exception:
+                    # Jeśli coś pójdzie nie tak, pomiń ten składnik
+                    continue
+
+    except Exception as e:
+        print(f"Błąd podczas przetwarzania strony {url}: {e}")
+    finally:
+        driver.quit()
+
     return ingredients
 
 
