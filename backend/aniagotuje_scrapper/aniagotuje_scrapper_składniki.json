@@ -94,53 +94,5 @@
                 "quantity": "3 łyżki - 20 g"
             }
         ]
-    },
-    "brownie-z-maslem-orzechowym": {
-        "ingredients": [
-            {
-                "product": "mąka pszenna tortowa",
-                "quantity": "150 g - niecała szklanka"
-            },
-            {
-                "product": "masło",
-                "quantity": "250 g"
-            },
-            {
-                "product": "duże jajka",
-                "quantity": "4 sztuki"
-            },
-            {
-                "product": "cukier",
-                "quantity": "200 g"
-            },
-            {
-                "product": "cukier wanilinowy",
-                "quantity": "16 g - mała saszetka"
-            },
-            {
-                "product": "czekolada gorzka",
-                "quantity": "100 g"
-            },
-            {
-                "product": "czekolada mleczna",
-                "quantity": "100 g"
-            },
-            {
-                "product": "sól",
-                "quantity": "1/3 płaskiej łyżeczki"
-            },
-            {
-                "product": "masło orzechowe (572 kcal w 100 gramach)",
-                "quantity": "150 g"
-            },
-            {
-                "product": "orzechy ziemne - prażone i solone",
-                "quantity": "50 g"
-            },
-            {
-                "product": "precelki (394 kcal w 100 gramach)",
-                "quantity": "30 g"
-            }
-        ]
     }
 }

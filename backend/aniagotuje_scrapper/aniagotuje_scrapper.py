@@ -66,7 +66,7 @@ def get_recipe_ingredients(url):
 
         # Sekcja składników
         ingredients_section = driver.find_element(By.ID, 'recipeIngredients')
-        print(f"HTML sekcji składników:\n{ingredients_section.get_attribute('outerHTML')}")
+        # print(f"HTML sekcji składników:\n{ingredients_section.get_attribute('outerHTML')}")
 
         ingredients = []
 
@@ -137,9 +137,9 @@ def get_recipes():
         ingredients = get_recipe_ingredients(url)
         if ingredients:
             recipes[recipe_name] = {"ingredients": ingredients}
-        print(f"Przepis: {recipe_name}, Składniki: {ingredients}")  # Debugowanie
+        # print(f"Przepis: {recipe_name}, Składniki: {ingredients}")  # Debugowanie
 
-    print(f"Wszystkie przepisy: {recipes}")  # Debugowanie
+    # print(f"Wszystkie przepisy: {recipes}")  # Debugowanie
     return recipes
 
 

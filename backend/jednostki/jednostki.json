@@ -1,12 +1,11 @@
 {
     "units": {
-        "g": "g",
-        "dkg": "dkg",
-        "kg": "kg",
-        "ml": "ml",
-        "l": "l",
-        "sztuk": "sztuka",
-        "łyżeczk": "łyżeczka",
-        "łyżk": "łyżka"
+        "\\b(g)\\b": "g",
+        "\\b(kg)\\b": "kg",
+        "\\b(ml)\\b": "ml",
+        "\\b(l)\\b": "l",
+        "\\b(sztuk(?:a|i)?)\\b": "sztuka",
+        "\\b(łyżeczk[ai])\\b": "łyżeczka",
+        "\\b(łyżk[ai])\\b": "łyżka"
     }
 }

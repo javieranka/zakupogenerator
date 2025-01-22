@@ -43,29 +43,76 @@ def load_ingredients_from_files(scraper_folders):
     
     return all_ingredients
 
+# def extract_quantity_and_unit(quantity_text):
+#     """
+#     Rozdziela ilość i jednostkę na podstawie regexów.
+#     Normalizuje jednostki, np. "płaska łyżeczka" -> "łyżeczka".
+#     Zwraca pierwsze dopasowanie (ilość i jednostkę) lub domyślnie (quantity_text, "").
+#     """
+
+#     # Normalizacja jednostek z przymiotnikami
+#     quantity_text = re.sub(r'płaska\s+(łyżeczka|łyżka)', r'\1', quantity_text)
+#     quantity_text = re.sub(r'płaskie\s+(łyżeczki|łyżki)', r'\1', quantity_text)
+
+#     quantity_patterns = [
+#         r'(?P<quantity>\d+)\s*(?P<unit>sztuk(?:a|i)?)',  # np. 4 sztuki
+#         r'(?P<quantity>\d+/\d+|\d+)\s*(?P<unit>łyżeczka|łyżka|łyżeczki|g|kg|ml|l)',  # np. 1 łyżeczka, 1/3 łyżeczki
+#         r'po\s+(?P<quantity>\d+)\s*(?P<unit>łyżeczki|łyżki)',  # np. po 1 łyżeczce
+#     ]
+
+#     for pattern in quantity_patterns:
+#         match = re.search(pattern, quantity_text)
+#         if match:
+#             return match.group('quantity'), match.group('unit')
+
+#     return quantity_text, ""  # Domyślnie ilość = quantity_text, jednostka pusta
+
+import re
+
 def extract_quantity_and_unit(quantity_text):
     """
     Rozdziela ilość i jednostkę na podstawie regexów.
-    Normalizuje jednostki, np. "płaska łyżeczka" -> "łyżeczka".
     Zwraca pierwsze dopasowanie (ilość i jednostkę) lub domyślnie (quantity_text, "").
     """
 
-    # Normalizacja jednostek z przymiotnikami
-    quantity_text = re.sub(r'płaska\s+(łyżeczka|łyżka)', r'\1', quantity_text)
-    quantity_text = re.sub(r'płaskie\s+(łyżeczki|łyżki)', r'\1', quantity_text)
+    # Usuwamy przymiotniki, takie jak "płaska" czy "czubata", pozostawiając jednostki
+    quantity_text = re.sub(r'\b(po)\b', '', quantity_text).strip()
+    quantity_text = re.sub(r'\b(płaska|płaskie|płaskiej|czubata|czubate|czubatej)\b', '', quantity_text).strip()
 
+    # Definiujemy wzorce w kolejności priorytetu
     quantity_patterns = [
-        r'(?P<quantity>\d+)\s*(?P<unit>sztuk(?:a|i)?)',  # np. 4 sztuki
-        r'(?P<quantity>\d+/\d+|\d+)\s*(?P<unit>łyżeczka|łyżka|łyżeczki|g|kg|ml|l)',  # np. 1 łyżeczka, 1/3 łyżeczki
-        r'po\s+(?P<quantity>\d+)\s*(?P<unit>łyżeczki|łyżki)',  # np. po 1 łyżeczce
+        # Najpierw wzorce dla jednostek wagowych i objętościowych (kg przed g, bez zbędnych spacji)
+        r'(?P<quantity>\d+/\d+|\d+)\s*(?P<unit>\bkg\b|\bg\b|\bl\b|\bml\b|\błyżeczka\b|\błyżka\b|\błyżeczki\b|\błyżki\b)',  # np. 1 kg, 1/2 łyżeczki
+        # Następnie sztuki
+        r'(?P<quantity>\d+)\s*(?P<unit>\bsztuk(?:a|i)?\b)',  # np. 3 sztuki
+        # Inne frazy typu "po 1 łyżeczce"
+        r'po\s+(?P<quantity>\d+)\s*(?P<unit>\błyżeczki\b|\błyżki\b)',  # np. po 1 łyżeczce
     ]
 
+    # Przechowujemy wszystkie dopasowania w formie (pozycja, ilość, jednostka)
+    matches = []
     for pattern in quantity_patterns:
-        match = re.search(pattern, quantity_text)
-        if match:
-            return match.group('quantity'), match.group('unit')
+        for match in re.finditer(pattern, quantity_text):
+            matches.append((match.start(), match.group('quantity'), match.group('unit')))
 
-    return quantity_text, ""  # Domyślnie ilość = quantity_text, jednostka pusta
+    # Jeśli znaleziono dopasowania, wybierz pierwsze w tekście (najmniejsza pozycja startowa)
+    if matches:
+        first_match = min(matches, key=lambda x: x[0])
+        print(f"First match: {first_match}")
+        return first_match[1], first_match[2]
+
+    # Domyślny zwrot: ilość = cały tekst, jednostka = ""
+    return quantity_text, ""
+
+
+def map_unit(unit):
+    """
+    Dopasowuje jednostkę do wartości z `unit_mappings`, uwzględniając regex.
+    """
+    for pattern, normalized_unit in unit_mappings.items():
+        if re.search(pattern, unit):
+            return normalized_unit
+    return unit  # Jeśli nie znaleziono, zwróć oryginalną jednostkę
 
 def merge_ingredients(all_ingredients):
     """
@@ -137,6 +184,9 @@ def generate_shopping_list(shopping_list):
 
     print(f"Zapisano listę zakupów w pliku: {shopping_list_json}")
 
+    # Zwrócenie danych JSON wcześniej załadowanych do pliku
+    return sorted_shopping_list
+
 
 # Funkcja wywołująca podskrypt aniagotuje_scrapper.py
 def run_scraper():
@@ -151,9 +201,10 @@ def run_scraper():
         exit()
 
 
-# Główna część skryptu
-if __name__ == "__main__":
-    # Uruchamiamy podskrypt scrapera
+# Funckja dla wywołania przez inny program
+# Zwraca wynik w postaci JSON
+def return_result_shopping_list_json():
+        # Uruchamiamy podskrypt scrapera
     run_scraper()
 
     # Zakładając, że foldery *_scrapper są w bieżącym katalogu
@@ -170,4 +221,30 @@ if __name__ == "__main__":
     merged_ingredients = merge_ingredients(all_ingredients)
     
     # Wygeneruj listę zakupów (posortowany JSON)
-    generate_shopping_list(merged_ingredients)
+    sorted_json_data = generate_shopping_list(merged_ingredients)
+
+    return sorted_json_data
+
+
+# Główna część skryptu
+if __name__ == "__main__":
+    final_data = return_result_shopping_list_json()
+    print(final_data)
+    # # Uruchamiamy podskrypt scrapera
+    # run_scraper()
+
+    # # Zakładając, że foldery *_scrapper są w bieżącym katalogu
+    # # scraper_folders = [folder for folder in os.listdir() if folder.endswith('_scrapper')]
+    # scraper_folders = [
+    #     folder for folder in os.listdir('./backend/') 
+    #     if os.path.isdir(os.path.join('./backend/', folder)) and folder.endswith('_scrapper')
+    # ]
+
+    # # Załaduj składniki z plików *_składniki.json
+    # all_ingredients = load_ingredients_from_files(scraper_folders)
+    
+    # # Wygeneruj złączoną listę składników
+    # merged_ingredients = merge_ingredients(all_ingredients)
+    
+    # # Wygeneruj listę zakupów (posortowany JSON)
+    # generate_shopping_list(merged_ingredients)
