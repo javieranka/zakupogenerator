@@ -1,8 +1,10 @@
 # from time import sleep
-from flask import render_template, request, redirect, url_for
-from app import app
-
 from datetime import datetime
+from flask import render_template, request, redirect, url_for
+from front.app import app
+
+# from backend.zakupogenerator import return_result_shopping_list_json
+
 
 @app.route('/')
 def index():
@@ -17,6 +19,7 @@ def results():
     return render_template('results.html', 
             # data=data,
             input_text = input_text,
+            # data = return_result_shopping_list_json(),               
             data = test_lista_zakupow(),               
             now=datetime.now(),
             enumerate=enumerate,
