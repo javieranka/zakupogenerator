@@ -3,12 +3,22 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Formularz</h1>
-<form action="{{ url_for('results') }}" method="POST">
-    <div class="mb-3">
-        <label for="inputField" class="form-label">Wprowadź coś:</label>
-        <input type="text" class="form-control" id="inputField" name="input_field" required>
+<h1 class="text-center mb-5">ZakupoGenerator</h1>
+<form action="{{ url_for('results') }}" method="POST" class="my-3">
+    <div class="row d-flex justify-content-center text-center">
+        <div class="col-md-6 bg-secondary-subtle rounded">
+
+            <div class="m-2">
+                <label for="inputField" class="form-label">Wprowadź łącza do wybranych przepisów</label>
+                <!-- <input type="text" class="form-control" id="inputField" name="input_field" required> -->
+                <textarea class="form-control" name="input_field" id="inputField" required placeholder="..."
+                style="min-height: 240px;"></textarea>
+            </div>
+            <div class="my-3 text-center">
+                <button type="submit" class="btn btn-primary">Utwórz listę zakupów</button>
+            </div>
+
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Wyślij</button>
 </form>
 {% endblock %}
