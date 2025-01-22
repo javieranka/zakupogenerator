@@ -5,20 +5,18 @@ import subprocess
 import re
 from collections import defaultdict
 
-units_filepath = './backend/jednostki/jednostki.json'
-units_calc_filepath = './backend/jednostki/jednostki_przeliczanie.json'
-shopping_list_json = './backend/lista_zakupów.json'
+import config_file as cfg
+from aniagotuje_scrapper.aniagotuje_scrapper import main_fun
 
-aniagotuje_scrapper_filepath = "./backend/aniagotuje_scrapper/"
-aniagotuje_scrapper_script_filepath = "./backend/aniagotuje_scrapper/aniagotuje_scrapper.py"
+
 
 
 # Wczytanie pliku jednostki.json
-with open(units_filepath, 'r', encoding='utf-8') as units_file:
+with open(cfg.units_filepath, 'r', encoding='utf-8') as units_file:
     unit_mappings = json.load(units_file)["units"]
 
 # Wczytanie pliku jednostki_przelicznie.json
-with open(units_calc_filepath, 'r', encoding='utf-8') as units_calc_file:
+with open(cfg.units_calc_filepath, 'r', encoding='utf-8') as units_calc_file:
     unit_conversion_factors = json.load(units_calc_file)
 
 def load_ingredients_from_files(scraper_folders):
@@ -179,22 +177,23 @@ def generate_shopping_list(shopping_list):
     # print(sorted_shopping_list)
 
     # Zapis do pliku JSON
-    with open(shopping_list_json, "w", encoding="utf-8") as json_file:
+    with open(cfg.shopping_list_json, "w", encoding="utf-8") as json_file:
         json.dump(sorted_shopping_list, json_file, ensure_ascii=False, indent=4)
 
-    print(f"Zapisano listę zakupów w pliku: {shopping_list_json}")
+    print(f"Zapisano listę zakupów w pliku: {cfg.shopping_list_json}")
 
     # Zwrócenie danych JSON wcześniej załadowanych do pliku
     return sorted_shopping_list
 
 
 # Funkcja wywołująca podskrypt aniagotuje_scrapper.py
-def run_scraper():
+def run_scraper(data):
     """Uruchamia podskrypt scrapera."""
     try:
         # Wywołanie skryptu aniagotuje_scrapper.py
-        result = subprocess.run(["python", aniagotuje_scrapper_script_filepath], 
-                                check=True, capture_output=True, text=True)
+        # result = subprocess.run(["python", cfg.aniagotuje_scrapper_script_filepath, data], 
+        #                         check=True, capture_output=True, text=True)
+        main_fun(data)
         print("Podskrypt scrapera zakończył się sukcesem.")
     except subprocess.CalledProcessError as e:
         print(f"Błąd przy uruchamianiu scrapera: {e}")
@@ -203,9 +202,9 @@ def run_scraper():
 
 # Funckja dla wywołania przez inny program
 # Zwraca wynik w postaci JSON
-def return_result_shopping_list_json():
+def return_result_shopping_list_json(data):
         # Uruchamiamy podskrypt scrapera
-    run_scraper()
+    run_scraper(data)
 
     # Zakładając, że foldery *_scrapper są w bieżącym katalogu
     # scraper_folders = [folder for folder in os.listdir() if folder.endswith('_scrapper')]

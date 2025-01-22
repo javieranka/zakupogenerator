@@ -115,19 +115,19 @@ def get_recipe_ingredients(url):
     return ingredients
 
 
-def get_recipes():
+def get_recipes(recipe_urls):
     # Odczytanie linków do przepisów z pliku
-    recipe_urls = []
-    try:
-        with open(aniagotuje_links_filepath, 'r', encoding='utf-8') as file:
-            recipe_urls = [line.strip() for line in file.readlines() if line.strip()]
-        print(f"Załadowano {len(recipe_urls)} linków do przepisów z pliku.")
-    except FileNotFoundError:
-        print("Plik 'linki_do_przepisów.txt' nie został znaleziony!")
-        return []
-    except Exception as e:
-        print(f"Wystąpił błąd podczas odczytu pliku: {e}")
-        return []
+    # recipe_urls = []
+    # try:
+    #     with open(aniagotuje_links_filepath, 'r', encoding='utf-8') as file:
+    #         recipe_urls = [line.strip() for line in file.readlines() if line.strip()]
+    #     print(f"Załadowano {len(recipe_urls)} linków do przepisów z pliku.")
+    # except FileNotFoundError:
+    #     print("Plik 'linki_do_przepisów.txt' nie został znaleziony!")
+    #     return []
+    # except Exception as e:
+    #     print(f"Wystąpił błąd podczas odczytu pliku: {e}")
+    #     return []
     
     recipes = {}
 
@@ -149,6 +149,10 @@ def save_recipes_to_file(recipes, file_name=aniagotuje_results_filepath):
         json.dump(recipes, file, ensure_ascii=False, indent=4)
     print(f"Zapisano przepisy do pliku {file_name}")
 
+
+def main_fun(data):
+    recipes = get_recipes(data)
+    save_recipes_to_file(recipes)
 
 ############### MAIN ###############
 if __name__ == "__main__":
