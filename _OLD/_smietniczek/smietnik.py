@@ -211,3 +211,43 @@ def parse_quantity_and_unit(quantity_str):
         })
 
     return merged_ingredients_list
+
+
+
+# Odczytanie linków do przepisów z pliku
+# recipe_urls = []
+# try:
+#     with open(aniagotuje_links_filepath, 'r', encoding='utf-8') as file:
+#         recipe_urls = [line.strip() for line in file.readlines() if line.strip()]
+#     print(f"Załadowano {len(recipe_urls)} linków do przepisów z pliku.")
+# except FileNotFoundError:
+#     print("Plik 'linki_do_przepisów.txt' nie został znaleziony!")
+#     return []
+# except Exception as e:
+#     print(f"Wystąpił błąd podczas odczytu pliku: {e}")
+#     return []
+
+
+# def extract_quantity_and_unit(quantity_text):
+#     """
+#     Rozdziela ilość i jednostkę na podstawie regexów.
+#     Normalizuje jednostki, np. "płaska łyżeczka" -> "łyżeczka".
+#     Zwraca pierwsze dopasowanie (ilość i jednostkę) lub domyślnie (quantity_text, "").
+#     """
+
+#     # Normalizacja jednostek z przymiotnikami
+#     quantity_text = re.sub(r'płaska\s+(łyżeczka|łyżka)', r'\1', quantity_text)
+#     quantity_text = re.sub(r'płaskie\s+(łyżeczki|łyżki)', r'\1', quantity_text)
+
+#     quantity_patterns = [
+#         r'(?P<quantity>\d+)\s*(?P<unit>sztuk(?:a|i)?)',  # np. 4 sztuki
+#         r'(?P<quantity>\d+/\d+|\d+)\s*(?P<unit>łyżeczka|łyżka|łyżeczki|g|kg|ml|l)',  # np. 1 łyżeczka, 1/3 łyżeczki
+#         r'po\s+(?P<quantity>\d+)\s*(?P<unit>łyżeczki|łyżki)',  # np. po 1 łyżeczce
+#     ]
+
+#     for pattern in quantity_patterns:
+#         match = re.search(pattern, quantity_text)
+#         if match:
+#             return match.group('quantity'), match.group('unit')
+
+#     return quantity_text, ""  # Domyślnie ilość = quantity_text, jednostka pusta

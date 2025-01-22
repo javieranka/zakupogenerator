@@ -1,17 +1,12 @@
 [
     {
-        "product": "cukier",
-        "quantity": "200.0",
-        "unit": "g"
-    },
-    {
         "product": "cukier drobny",
-        "quantity": "290.0",
+        "quantity": "150.0",
         "unit": "g"
     },
     {
         "product": "cukier wanilinowy",
-        "quantity": "32.0",
+        "quantity": "16.0",
         "unit": "g"
     },
     {
@@ -20,18 +15,8 @@
         "unit": "łyżeczka"
     },
     {
-        "product": "czekolada gorzka",
-        "quantity": "130.0",
-        "unit": "g"
-    },
-    {
-        "product": "czekolada mleczna",
-        "quantity": "100.0",
-        "unit": "g"
-    },
-    {
         "product": "duże jajka",
-        "quantity": "12.0",
+        "quantity": "4.0",
         "unit": "sztuki"
     },
     {
@@ -46,27 +31,7 @@
     },
     {
         "product": "kakao",
-        "quantity": "24.0",
-        "unit": "g"
-    },
-    {
-        "product": "masło",
-        "quantity": "450.0",
-        "unit": "g"
-    },
-    {
-        "product": "masło orzechowe (572 kcal w 100 gramach)",
-        "quantity": "150.0",
-        "unit": "g"
-    },
-    {
-        "product": "mleko",
-        "quantity": "50.0",
-        "unit": "ml"
-    },
-    {
-        "product": "mąka pszenna tortowa",
-        "quantity": "390.0",
+        "quantity": "20.0",
         "unit": "g"
     },
     {
@@ -80,50 +45,13 @@
         "unit": "ml"
     },
     {
-        "product": "orzechy ziemne - prażone i solone",
-        "quantity": "50.0",
-        "unit": "g"
-    },
-    {
-        "product": "precelki (394 kcal w 100 gramach)",
-        "quantity": "30.0",
-        "unit": "g"
-    },
-    {
         "product": "proszek do pieczenia",
         "quantity": "2.0",
         "unit": "łyżeczki"
     },
     {
-        "product": "proszek do pieczenia i soda",
-        "quantity": "1.0",
-        "unit": "",
-        "original_quantity": "po płaskiej łyżeczce"
-    },
-    {
         "product": "soda oczyszczona",
         "quantity": "1.0",
         "unit": "łyżeczka"
-    },
-    {
-        "product": "sól",
-        "quantity": "1.0",
-        "unit": "",
-        "original_quantity": "1/3 płaskiej łyżeczki"
-    },
-    {
-        "product": "wiórki kokosowe",
-        "quantity": "3.0",
-        "unit": "łyżki"
-    },
-    {
-        "product": "śmietanka 30 %",
-        "quantity": "30.0",
-        "unit": "ml"
-    },
-    {
-        "product": "świeże śliwki",
-        "quantity": "600.0",
-        "unit": "g"
     }
 ]

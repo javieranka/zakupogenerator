@@ -5,10 +5,8 @@ import subprocess
 import re
 from collections import defaultdict
 
-import config_file as cfg
-from aniagotuje_scrapper.aniagotuje_scrapper import main_fun
-
-
+import backend.config_file as cfg
+from backend.aniagotuje_scrapper.aniagotuje_scrapper import aniagotuje_scrapper_main
 
 
 # Wczytanie pliku jednostki.json
@@ -18,6 +16,7 @@ with open(cfg.units_filepath, 'r', encoding='utf-8') as units_file:
 # Wczytanie pliku jednostki_przelicznie.json
 with open(cfg.units_calc_filepath, 'r', encoding='utf-8') as units_calc_file:
     unit_conversion_factors = json.load(units_calc_file)
+
 
 def load_ingredients_from_files(scraper_folders):
     """Ładuje składniki z plików JSON w folderach *_scrapper."""
@@ -41,31 +40,6 @@ def load_ingredients_from_files(scraper_folders):
     
     return all_ingredients
 
-# def extract_quantity_and_unit(quantity_text):
-#     """
-#     Rozdziela ilość i jednostkę na podstawie regexów.
-#     Normalizuje jednostki, np. "płaska łyżeczka" -> "łyżeczka".
-#     Zwraca pierwsze dopasowanie (ilość i jednostkę) lub domyślnie (quantity_text, "").
-#     """
-
-#     # Normalizacja jednostek z przymiotnikami
-#     quantity_text = re.sub(r'płaska\s+(łyżeczka|łyżka)', r'\1', quantity_text)
-#     quantity_text = re.sub(r'płaskie\s+(łyżeczki|łyżki)', r'\1', quantity_text)
-
-#     quantity_patterns = [
-#         r'(?P<quantity>\d+)\s*(?P<unit>sztuk(?:a|i)?)',  # np. 4 sztuki
-#         r'(?P<quantity>\d+/\d+|\d+)\s*(?P<unit>łyżeczka|łyżka|łyżeczki|g|kg|ml|l)',  # np. 1 łyżeczka, 1/3 łyżeczki
-#         r'po\s+(?P<quantity>\d+)\s*(?P<unit>łyżeczki|łyżki)',  # np. po 1 łyżeczce
-#     ]
-
-#     for pattern in quantity_patterns:
-#         match = re.search(pattern, quantity_text)
-#         if match:
-#             return match.group('quantity'), match.group('unit')
-
-#     return quantity_text, ""  # Domyślnie ilość = quantity_text, jednostka pusta
-
-import re
 
 def extract_quantity_and_unit(quantity_text):
     """
@@ -96,7 +70,7 @@ def extract_quantity_and_unit(quantity_text):
     # Jeśli znaleziono dopasowania, wybierz pierwsze w tekście (najmniejsza pozycja startowa)
     if matches:
         first_match = min(matches, key=lambda x: x[0])
-        print(f"First match: {first_match}")
+        # print(f"First match: {first_match}")
         return first_match[1], first_match[2]
 
     # Domyślny zwrot: ilość = cały tekst, jednostka = ""
@@ -111,6 +85,7 @@ def map_unit(unit):
         if re.search(pattern, unit):
             return normalized_unit
     return unit  # Jeśli nie znaleziono, zwróć oryginalną jednostkę
+
 
 def merge_ingredients(all_ingredients):
     """
@@ -193,7 +168,7 @@ def run_scraper(data):
         # Wywołanie skryptu aniagotuje_scrapper.py
         # result = subprocess.run(["python", cfg.aniagotuje_scrapper_script_filepath, data], 
         #                         check=True, capture_output=True, text=True)
-        main_fun(data)
+        aniagotuje_scrapper_main(data)
         print("Podskrypt scrapera zakończył się sukcesem.")
     except subprocess.CalledProcessError as e:
         print(f"Błąd przy uruchamianiu scrapera: {e}")
@@ -229,21 +204,3 @@ def return_result_shopping_list_json(data):
 if __name__ == "__main__":
     final_data = return_result_shopping_list_json()
     print(final_data)
-    # # Uruchamiamy podskrypt scrapera
-    # run_scraper()
-
-    # # Zakładając, że foldery *_scrapper są w bieżącym katalogu
-    # # scraper_folders = [folder for folder in os.listdir() if folder.endswith('_scrapper')]
-    # scraper_folders = [
-    #     folder for folder in os.listdir('./backend/') 
-    #     if os.path.isdir(os.path.join('./backend/', folder)) and folder.endswith('_scrapper')
-    # ]
-
-    # # Załaduj składniki z plików *_składniki.json
-    # all_ingredients = load_ingredients_from_files(scraper_folders)
-    
-    # # Wygeneruj złączoną listę składników
-    # merged_ingredients = merge_ingredients(all_ingredients)
-    
-    # # Wygeneruj listę zakupów (posortowany JSON)
-    # generate_shopping_list(merged_ingredients)

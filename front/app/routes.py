@@ -3,7 +3,7 @@ from datetime import datetime
 from flask import render_template, request, redirect, url_for
 from front.app import app
 
-# from backend.zakupogenerator import return_result_shopping_list_json
+from backend.zakupogenerator import return_result_shopping_list_json
 
 
 @app.route('/')
@@ -19,8 +19,8 @@ def results():
     return render_template('results.html', 
             # data=data,
             input_text = input_text,
-            # data = return_result_shopping_list_json(),               
-            data = test_lista_zakupow(),               
+            data = return_result_shopping_list_json(input_text),               
+            # data = test_lista_zakupow(),               
             now=datetime.now(),
             enumerate=enumerate,
         )

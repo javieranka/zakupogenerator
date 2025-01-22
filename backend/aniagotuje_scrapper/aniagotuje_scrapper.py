@@ -111,23 +111,13 @@ def get_recipe_ingredients(url):
     finally:
         driver.quit()
 
-    print(f"Znalezione składniki dla {url}: {ingredients}")
+    # print(f"Znalezione składniki dla {url}: {ingredients}")
     return ingredients
 
 
-def get_recipes(recipe_urls):
-    # Odczytanie linków do przepisów z pliku
-    # recipe_urls = []
-    # try:
-    #     with open(aniagotuje_links_filepath, 'r', encoding='utf-8') as file:
-    #         recipe_urls = [line.strip() for line in file.readlines() if line.strip()]
-    #     print(f"Załadowano {len(recipe_urls)} linków do przepisów z pliku.")
-    # except FileNotFoundError:
-    #     print("Plik 'linki_do_przepisów.txt' nie został znaleziony!")
-    #     return []
-    # except Exception as e:
-    #     print(f"Wystąpił błąd podczas odczytu pliku: {e}")
-    #     return []
+def get_recipes(data):
+    # Odczytanie linków do przepisów z przekazanej zmiennej (ciągu znaków)
+    recipe_urls = [line.strip() for line in data.splitlines() if line.strip()]
     
     recipes = {}
 
@@ -150,7 +140,7 @@ def save_recipes_to_file(recipes, file_name=aniagotuje_results_filepath):
     print(f"Zapisano przepisy do pliku {file_name}")
 
 
-def main_fun(data):
+def aniagotuje_scrapper_main(data):
     recipes = get_recipes(data)
     save_recipes_to_file(recipes)
 
