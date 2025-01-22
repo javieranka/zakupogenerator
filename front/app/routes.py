@@ -1,3 +1,4 @@
+# from time import sleep
 from flask import render_template, request, redirect, url_for
 from app import app
 
@@ -12,11 +13,13 @@ def index():
 @app.route('/results', methods=['POST'])
 def results():
     input_text = request.form.get('input_field')  # Pobranie danych z formularza
+    # sleep(1)
     return render_template('results.html', 
             # data=data,
             input_text = input_text,
             data = test_lista_zakupow(),               
-            now=datetime.now()
+            now=datetime.now(),
+            enumerate=enumerate,
         )
 
 
@@ -42,6 +45,12 @@ def test_lista_zakupow():
             "product": "cynamon",
             "quantity": "1.0",
             "unit": "łyżeczka"
+        },
+        {
+            "product": "proszek do pieczenia i soda",
+            "quantity": "1.0",
+            "unit": "",
+            "original_quantity": "po płaskiej łyżeczce"
         },
     ]
     return data

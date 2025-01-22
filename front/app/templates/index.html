@@ -10,13 +10,13 @@
 
             <div class="m-2">
                 <label for="inputField" class="form-label">Wprowadź łącza do wybranych przepisów</label>
-                <!-- <input type="text" class="form-control" id="inputField" name="input_field" required> -->
+                
                 <textarea class="form-control" name="input_field" id="inputField" required placeholder="..."
                 style="min-height: 240px;"></textarea>
             </div>
             <div class="my-3 text-center d-flex align-items-center justify-content-center">
-                <button type="submit" class="btn btn-primary">Utwórz listę zakupów</button>
-                <div class="spinner-border" role="status">
+                <button type="submit" class="btn btn-primary" id="submitButton">Utwórz listę zakupów 🛒</button>
+                <div class="spinner-border" role="status" hidden id="spinner">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>

@@ -4,10 +4,9 @@
 
 {% block content %}
 <h1 class="text-center mb-5">ZakupoGenerator</h1>
-<p>Wprowadziłeś: {{ input_text }}</p>
-<a href="{{ url_for('index') }}" class="btn btn-secondary">Powrót</a>
 
 <div>
+    <h5>Lista zakupów</h5>
     <table class="table table-hover" id="myTable">
         <thead>
             <tr>
@@ -18,26 +17,28 @@
             </tr>
         </thead>
         <tbody>
+            {% for i, item in enumerate(data, start=1) %}
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <!-- <td>@mdo</td> -->
+                <th scope="row">{{ i }}</th>
+                <td>{{ item.get('product').title() }}</td>
+                <td>
+                    {% if item.get('original_quantity', '').strip() != "" %}
+                        {{ item.get('original_quantity').capitalize() }}
+                    {% else %}
+                        {{ item.get('quantity') + ' ' + item.get('unit') }}
+                    {% endif %}
+                </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <!-- <td>@fat</td> -->
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>Thornton</td>
-                <!-- <td>@twitter</td> -->
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
+</div>
+
+<div class="d-flex justify-content-center my-3 align-items-center">
+    
+    <button onclick="printTable()" class="btn btn-primary mx-2">Drukuj 🖨️</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mx-2">Powrót ◀️</a>
+
 </div>
 
 {% endblock %}
