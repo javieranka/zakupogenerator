@@ -20,7 +20,7 @@
             {% for i, item in enumerate(data, start=1) %}
             <tr>
                 <th scope="row">{{ i }}</th>
-                <td>{{ item.get('product').title() }}</td>
+                <td>{{ item.get('product').capitalize() }}</td>
                 <td>
                     {% if item.get('original_quantity', '').strip() != "" %}
                         {{ item.get('original_quantity').capitalize() }}
