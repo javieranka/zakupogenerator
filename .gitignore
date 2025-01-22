@@ -1,3 +1,5 @@
 front/app/__pycache__/*
 backend/__pycache__/*
 backend/aniagotuje_scrapper/__pycache__/*
+backend/lista_zakupów.json
+backend/aniagotuje_scrapper/aniagotuje_scrapper_składniki.json
