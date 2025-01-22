@@ -1,14 +1,12 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.chrome import ChromeDriverManager
-import time
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+# from webdriver_manager.chrome import ChromeDriverManager
 import json
 
 
-aniagotuje_links_filepath = "./backend/aniagotuje_scrapper/linki_do_przepisów.txt"
 aniagotuje_results_filepath = "./backend/aniagotuje_scrapper/aniagotuje_scrapper_składniki.json"
 
 
@@ -45,8 +43,21 @@ def split_quantity_and_unit(quantity_text):
 
 
 def get_recipe_ingredients(url):
+    from selenium import webdriver
+    from selenium.webdriver.chrome.service import Service
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    from webdriver_manager.chrome import ChromeDriverManager
+
     options = webdriver.ChromeOptions()
-    options.headless = True
+    options.add_argument("--headless")  # Działa w trybie bez okna
+    options.add_argument("--disable-gpu")  # Opcjonalne: wyłączenie GPU dla lepszej zgodności
+    options.add_argument("--no-sandbox")  # Wymagane na niektórych systemach Linux
+    options.add_argument("--disable-dev-shm-usage")  # Opcjonalne: zmniejszenie użycia pamięci współdzielonej
+
+    # options = webdriver.ChromeOptions()
+    # options.headless = True
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
     try:
