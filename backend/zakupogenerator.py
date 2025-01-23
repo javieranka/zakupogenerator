@@ -130,8 +130,12 @@ def merge_ingredients(all_ingredients):
     # Zmieniamy strukturę na listę
     merged_ingredients_list = []
     for product, data in merged_ingredients.items():
+        
+        # Usuwamy słowo "małe" z nazwy produktu
+        clean_product = re.sub(r"\b(małe|mała|mały|mało|duża|duże|dużo|duży)\b", "", product).strip()
+
         ingredient_data = {
-            "product": product,
+            "product": clean_product,
             "quantity": str(data["quantity"]),
             "unit": data["unit"],
         }
