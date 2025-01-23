@@ -6,4 +6,3 @@ https://aniagotuje.pl/przepis/brownie-z-maslem-orzechowym
 """
 
 zakupogenerator.return_result_shopping_list_json(data)
-
