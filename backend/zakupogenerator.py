@@ -108,15 +108,20 @@ def merge_ingredients(all_ingredients):
 
         # Konwersja ilości na liczbę
         try:
-            quantity = float(quantity) if quantity else 1.0
+            quantity = float(quantity) if quantity else 1
+            if quantity.is_integer():
+                quantity = int(quantity)
             original_quantity = None  # Ilość została poprawnie przetworzona, brak oryginalnego tekstu
         except ValueError:
             print(f"Nie udało się przetworzyć ilości: {quantity_text} dla produktu: {product}")
             original_quantity = quantity_text  # Zapisujemy oryginalny tekst
-            quantity = 1.0  # Domyślna ilość
+            quantity = 1  # Domyślna ilość
             unit = ""       # Domyślna jednostka
 
         # Sumowanie ilości w tej samej jednostce
+        # merged_ingredients[product]["quantity"] += quantity
+        if isinstance(merged_ingredients[product]["quantity"], float) and merged_ingredients[product]["quantity"].is_integer():
+            merged_ingredients[product]["quantity"] = int(merged_ingredients[product]["quantity"])
         merged_ingredients[product]["quantity"] += quantity
 
         # Ustalamy jednostkę (przyjmujemy pierwszą jednostkę, która się pojawi)
